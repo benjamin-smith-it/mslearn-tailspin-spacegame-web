@@ -36,7 +36,6 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-<<<<<<< HEAD
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
@@ -44,23 +43,6 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
-=======
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - Release'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
-    zipAfterPublish: true
->>>>>>> 3edb1fd6cf9675db9cfcdc20f00e50f1281cde0b
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
